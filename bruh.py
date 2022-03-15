@@ -10,8 +10,6 @@ def printLog(message):
     print("Message:", message.content)
     print()
 
-# def printBotMessage(message):
-
 def addBruhMoment(message):
     username = message.author.name + "#" + message.author.discriminator
 
@@ -23,18 +21,24 @@ def addBruhMoment(message):
 
 @client.event
 async def on_ready():
-    print("Bot initialised...")
+    print("Bot ready...")
 
 @client.event
 async def on_message(message): 
+    username = message.author.name + "#" + message.author.discriminator
+
     if message.author == client.user:
         return
 
-    if "bruh" in message.content:
+    if "!bruhmoments" in message.content.lower():
+        await message.channel.send("list of users' bruh moments")
+        await message.channel.send(userDict)
+        return
+
+    if "bruh" in message.content.lower():
         printLog(message)
         addBruhMoment(message)
-        print(userDict)
         await message.channel.send("bruh moment")
-        await message.channel.send("lol")
+        await message.channel.send(username + " has " + str(userDict.get(username)) + " bruh moments so far lol")
 
 client.run("token")
