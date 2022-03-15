@@ -5,11 +5,13 @@ client = discord.Client()
 # dictionary which contains usernames and corresponding amount of bruh moments
 userDict = {}
 
+# terminal logs
 def printLog(message):
     print("User:", message.author)
     print("Message:", message.content)
     print()
 
+# add bruh moment into dictionary
 def addBruhMoment(message):
     username = message.author.name + "#" + message.author.discriminator
 
@@ -19,10 +21,14 @@ def addBruhMoment(message):
     else:
         userDict[username] = 1
 
+# ready message
 @client.event
 async def on_ready():
     print("Bot ready...")
 
+# checks if user message contains the word "bruh"
+# adds to user to dictionary if so
+# user can do "!bruhmoments" to check server list of bruh moments
 @client.event
 async def on_message(message): 
     username = message.author.name + "#" + message.author.discriminator
