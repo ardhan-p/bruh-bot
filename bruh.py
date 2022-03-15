@@ -12,6 +12,8 @@ async def on_message(message):
         return
 
     if "bruh" in message.content:
+        print(message.author)
+        print(message)
         await message.channel.send("bruh")
 
-client.run("")
+client.run("Insert bot token here")
