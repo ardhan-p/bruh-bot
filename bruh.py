@@ -28,7 +28,7 @@ async def on_ready():
 
 # checks if user message contains the word "bruh"
 # adds to user to dictionary if so
-# user can do "!bruhmoments" to check server list of bruh moments
+# user can do "!mybruhmoments" to check user's bruh moments
 @client.event
 async def on_message(message): 
     username = message.author.name + "#" + message.author.discriminator
@@ -36,9 +36,9 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if "!bruhmoments" in message.content.lower():
-        await message.channel.send("list of users' bruh moments")
-        await message.channel.send(userDict)
+    if "!mybruhmoments" in message.content.lower():
+        await message.channel.send("you have " + str(userDict.get(username)) + " bruh moments")
+        await message.channel.send("yikes!")
         return
 
     if "bruh" in message.content.lower():
