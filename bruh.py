@@ -11,7 +11,7 @@ def printLog(message):
     print("Message:", message.content)
     print()
 
-# add bruh moment into dictionary
+# add a bruh moment into dictionary
 def addBruhMoment(message):
     username = message.author.name + "#" + message.author.discriminator
 
@@ -47,4 +47,4 @@ async def on_message(message):
         await message.channel.send("bruh moment")
         await message.channel.send(username + " has " + str(userDict.get(username)) + " bruh moments so far lol")
 
-client.run("token")
+client.run("")
