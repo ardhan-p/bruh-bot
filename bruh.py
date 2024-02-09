@@ -7,7 +7,7 @@ userDict = {}
 
 # terminal logs
 def printLog(message):
-    print("User:", message.author)
+    print("Username:", message.author)
     print("Message:", message.content)
     print()
 
@@ -47,4 +47,4 @@ async def on_message(message):
         await message.channel.send("bruh moment")
         await message.channel.send(username + " has " + str(userDict.get(username)) + " bruh moments so far lol")
 
-client.run("")
+client.run("discord bot token")
