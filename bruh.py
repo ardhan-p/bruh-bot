@@ -1,9 +1,10 @@
 import discord
 import env
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+client = discord.Client(intents=intents)
 
-# dictionary which contains usernames and corresponding amount of bruh moments
 userDict = {}
 
 # terminal logs
@@ -14,7 +15,7 @@ def printLog(message):
 
 # add a bruh moment into dictionary
 def addBruhMoment(message):
-    username = message.author.name + "#" + message.author.discriminator
+    username = message.author.name
 
     if username in userDict:
         counter = userDict.get(username) + 1
@@ -22,17 +23,14 @@ def addBruhMoment(message):
     else:
         userDict[username] = 1
 
-# ready message
+# bot initialised
 @client.event
 async def on_ready():
     print("Bot ready...")
 
-# checks if user message contains the word "bruh"
-# adds to user to dictionary if so
-# user can do "!mybruhmoments" to check user's bruh moments
 @client.event
 async def on_message(message): 
-    username = message.author.name + "#" + message.author.discriminator
+    username = message.author.name
 
     if message.author == client.user:
         return

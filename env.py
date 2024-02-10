@@ -1,1 +1,1 @@
-DISCORD_TOKEN = 'insert bot token here'
+DISCORD_TOKEN = 'discord bot token'
