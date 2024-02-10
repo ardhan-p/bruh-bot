@@ -1,5 +1,6 @@
 import discord
 import env
+import aws
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -36,6 +37,8 @@ async def on_message(message):
         return
 
     if "!mybruhmoments" in message.content.lower():
+        response = aws.checkUser(message)
+        print(response)
         await message.channel.send("you have " + str(userDict.get(username)) + " bruh moments")
         await message.channel.send("yikes!")
         return
