@@ -1,4 +1,5 @@
 import discord
+import env
 
 client = discord.Client()
 
@@ -47,4 +48,4 @@ async def on_message(message):
         await message.channel.send("bruh moment")
         await message.channel.send(username + " has " + str(userDict.get(username)) + " bruh moments so far lol")
 
-client.run("discord bot token")
+client.run(env.DISCORD_TOKEN)
